@@ -48,3 +48,5 @@ CMake and CMake Tool
 
 - Open `STM32CubeProgrammer`, connect the board via `ST-LINK` then press `Connect`
 - Use the `.hex` file for programming
+
+#### Good Luck !
