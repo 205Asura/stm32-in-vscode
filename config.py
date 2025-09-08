@@ -1,5 +1,51 @@
-from pathlib import Path
+import sys
+import subprocess
 import re
+
+from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyyaml"])
+    import yaml  # import lại sau khi cài
+
+input_file = ".clangd"
+output_file = ".clangd"
+
+# cấu hình cần thêm
+extra_compile_flags = ["-Wno-enum-conversion"]
+
+extra_diagnostics_suppress = ["enum-conversion"]
+
+with open(input_file, "r", encoding="utf-8") as f:
+    config = yaml.safe_load(f)
+
+# nếu chưa có CompileFlags -> tạo
+if "CompileFlags" not in config:
+    config["CompileFlags"] = {}
+if "Add" not in config["CompileFlags"]:
+    config["CompileFlags"]["Add"] = []
+
+# thêm flag nếu chưa có
+for flag in extra_compile_flags:
+    if flag not in config["CompileFlags"]["Add"]:
+        config["CompileFlags"]["Add"].append(flag)
+
+# nếu chưa có Diagnostics -> tạo
+if "Diagnostics" not in config:
+    config["Diagnostics"] = {}
+if "Suppress" not in config["Diagnostics"]:
+    config["Diagnostics"]["Suppress"] = []
+
+# thêm suppress nếu chưa có
+for diag in extra_diagnostics_suppress:
+    if diag not in config["Diagnostics"]["Suppress"]:
+        config["Diagnostics"]["Suppress"].append(diag)
+
+# ghi ra file mới
+with open(output_file, "w", encoding="utf-8") as f:
+    yaml.dump(config, f, sort_keys=False)
 
 cmake_file = Path("CMakeLists.txt")
 
@@ -59,4 +105,4 @@ if "Creating HEX file" not in new_text:
 
 cmake_file.write_text(new_text, encoding="utf-8")
 
-print("✅ Setup Complete !")
+print("✅ Config Completed !")
