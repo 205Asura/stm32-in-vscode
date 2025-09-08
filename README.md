@@ -40,12 +40,12 @@ CMake and CMake Tool
 
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/5b919b3e-e069-4223-b15d-a1bd9f9370b4" />
 
-- Open the `Prefrences: Open User Settings (JSON)` and set `"C_Cpp.intelliSenseEngine": "disabled"`, this will fix the confliction warning. **Note:** set to "default" if you doing with other non-STM32 projects
+- Open the `Prefrences: Open User Settings (JSON)` and set `"C_Cpp.intelliSenseEngine": "disabled"`, this will fix the confliction warning. **Note:** set back to "default" if you doing with other non-STM32 projects
 - Then click `Build` at the left corner of the screen for the first time
-- Add the file `config_cmake.py` in the project folder and run
+- Add the file `config.py` in the project folder and run
 
 ```bash
-python config_cmake.py
+python config.py
 ```
 
 - `Build` again than you can see the `.hex` and `.bin` file created in the `build` folder
