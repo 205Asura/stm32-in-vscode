@@ -1,0 +1,17 @@
+# Add sources to executable
+file(GLOB USER_SOURCES
+    "${CMAKE_SOURCE_DIR}/Core/Src/*.c"
+)
+
+# Exclude system_stm32f4xx.c
+list(REMOVE_ITEM USER_SOURCES "${CMAKE_SOURCE_DIR}/Core/Src/system_stm32f4xx.c")
+
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+    ${USER_SOURCES}
+)
+
+# Add include paths
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+    # Add user defined include paths
+    ${CMAKE_SOURCE_DIR}/Core/Inc
+)
