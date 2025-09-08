@@ -33,12 +33,26 @@ CMake and CMake Tool
 - In `VSCode`, open the project folder created by STM32CubeMX. Some pop-ups will show immediately
 - Choose `Debug`, `Yes` and ignore the `Bad CMake executable`
 
-<img width="629" height="130" alt="image" src="https://github.com/user-attachments/assets/14521847-f4c8-4f51-b245-b81e0a661e70" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/14521847-f4c8-4f51-b245-b81e0a661e70" />
 
-<img width="457" height="164" alt="image" src="https://github.com/user-attachments/assets/5b919b3e-e069-4223-b15d-a1bd9f9370b4" />
- 
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5b919b3e-e069-4223-b15d-a1bd9f9370b4" />
+
+ - Open the `Prefrences: Open User Settings (JSON)` and set `"C_Cpp.intelliSenseEngine": "disabled"`, this will fix the confliction warning. **Note:** set to "default" if you doing with other non-STM32 projects
  - Then click `Build` at the left corner of the screen for the first time
- - Open the file `CMakelists.txt` (the one right next to `CMakePresets.json`) and add the code in `hex_bin.txt` at the end:
+ - Open the file `CMakelists.txt` (the one right next to `CMakePresets.json`) and do the followings:
+   - Add the code in `hex_bin.txt` at the end
+   - Replace the these 2 blocks by `linker.txt`
+    ```
+    # Add sources to executable
+    target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+     # Add user sources here
+    )
+
+    # Add include paths
+    target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+     # Add user defined include paths
+    )
+    ```
  
 
 - `Build` again than you can see the `.hex` and `.bin` file created in the `build` folder
