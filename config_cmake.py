@@ -5,7 +5,6 @@ cmake_file = Path("CMakeLists.txt")
 
 text = cmake_file.read_text(encoding="utf-8")
 
-# --- 1. Xác định file system_stm32xxx.c ---
 src_dir = Path("Core/Src")
 system_file = None
 for f in src_dir.glob("system_stm32*.c"):
@@ -17,7 +16,6 @@ if system_file:
 else:
     system_file_path = "# (no system_stm32*.c found)"
 
-# --- 2. Thay block sources/includes ---
 pattern = re.compile(
     r"# Add sources to executable.*?# Add include paths.*?\)", re.DOTALL
 )
@@ -42,7 +40,6 @@ target_include_directories(${{CMAKE_PROJECT_NAME}} PRIVATE
 
 new_text = pattern.sub(replacement, text)
 
-# --- 3. Thêm hex/bin block vào cuối ---
 hex_bin_block = """\n
 # Create .hex
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
@@ -62,4 +59,4 @@ if "Creating HEX file" not in new_text:
 
 cmake_file.write_text(new_text, encoding="utf-8")
 
-print(f"✅ CMakeLists.txt updated (excluded: {system_file})")
+print("✅ CMakeLists.txt updated")
