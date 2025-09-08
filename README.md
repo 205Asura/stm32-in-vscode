@@ -15,7 +15,7 @@ STM32Cube for Visual Studio Code (pre-released version)
 CMake and CMake Tool
 ```
 
-- `ARM GCC TOOLCHAIN` from https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads. I am using the `- [arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi.zip]`
+- `ARM GCC TOOLCHAIN` from https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads. I am using the `arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi.zip`
 
 ### Getting Started
 #### 1. Create a project in STM32CubeMX:
