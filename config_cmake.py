@@ -59,4 +59,4 @@ if "Creating HEX file" not in new_text:
 
 cmake_file.write_text(new_text, encoding="utf-8")
 
-print("✅ CMakeLists.txt updated")
+print("✅ Setup Complete !")
