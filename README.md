@@ -42,7 +42,7 @@ CMake and CMake Tool
  - Open the file `CMakelists.txt` (the one right next to `CMakePresets.json`) and do the followings:
    - Add the code in `hex_bin.txt` at the end
    - Replace the these 2 blocks by `linker.txt`
-    ```
+    ```cmake
     # Add sources to executable
     target_sources(${CMAKE_PROJECT_NAME} PRIVATE
      # Add user sources here
