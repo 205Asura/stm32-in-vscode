@@ -44,7 +44,7 @@ CMake and CMake Tool
 - Then click `Build` at the left corner of the screen for the first time
 - Add the file `config_cmake.py` in the project folder and run
 
-```python
+```bash
 python config_cmake.py
 ```
 
