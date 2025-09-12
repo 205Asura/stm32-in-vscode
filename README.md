@@ -14,7 +14,7 @@ This repo show you a good way to use VSCode in Windows for coding with STM32.
 
 ```
 STM32Cube for Visual Studio Code (pre-released version)
-CMake and CMake Tool
+CMake Tool
 ```
 
 - `ARM GCC TOOLCHAIN` from https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads. I am using the `arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi.zip`
