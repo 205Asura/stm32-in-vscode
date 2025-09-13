@@ -51,6 +51,9 @@ python config.py
 - `Build` again than you can see the `.hex` and `.bin` file created in the `build` folder
 - Now you can start coding in VSCode and add more pin configuration in STM32CubeMX
 
+**_Some bugs can happen in VSCode:_**
+1. If you change the directory of the project folder, a bug like "different from the original directory" will occur. To fix it, delete the "build" folder and click "Build".
+
 #### 3. Programming your STM32 Board
 
 - Open `STM32CubeProgrammer`, connect the board via `ST-LINK` then press `Connect`
